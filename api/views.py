@@ -1,9 +1,10 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets, mixins
 from .serializers import AboutSerializer, SkillsSerializer, WorksSerializer
 from .models import About, Skills, Works
 
 
-class AboutView(generics.ListAPIView):
+class AboutViewSet(
+  mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
 
