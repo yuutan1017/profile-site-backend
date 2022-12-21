@@ -3,9 +3,13 @@ from .serializers import AboutSerializer, SkillsSerializer, WorksSerializer
 from .models import About, Skills, Works
 
 
-class AboutView(generics.ListAPIView):
+class AboutViewSet(viewsets.ModelViewSet):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
+
+# class AboutView(generics.ListAPIView):
+#   queryset = About.objects.all()
+#   serializer_class = AboutSerializer
 
   # def get(self, request, *args, **kwargs):
   #   return self.list(request, *args, **kwargs) 
