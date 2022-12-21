@@ -3,10 +3,15 @@ from .serializers import AboutSerializer, SkillsSerializer, WorksSerializer
 from .models import About, Skills, Works
 
 
-class AboutViewSet(
-  mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
+class AboutView(generics.ListAPIView):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
+
+  # def get(self, request, *args, **kwargs):
+  #   return self.list(request, *args, **kwargs) 
+
+  # def put(self, request, *args, **kwargs):
+  #   return self.update(request, *args, **kwargs)
 
 
 class SkillsView(generics.ListAPIView):
