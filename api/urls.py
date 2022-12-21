@@ -2,17 +2,13 @@ from django.urls import path, include
 from api import views
 
 from rest_framework import routers
-from .views import AboutViewSet
+from .views import AboutViewSet, SkillsViewSet, WorksViewSet
 
 router = routers.DefaultRouter()
 
 router.register(r'about', AboutViewSet, basename='about')
+router.register(r'skills', SkillsViewSet, basename='skills')
+router.register(r'works', WorksViewSet, basename='works')
 
-urlpatterns = [
-    path('', include(router.urls)),
-    path('skills/', views.SkillsView.as_view(), name='skills'),
-    path('skills/<str:pk>/', views.SkillDetailView.as_view(), name='skill-detail'),
-    path('works/', views.WorksView.as_view(), name='works'),
-    path('works/<str:pk>/', views.WorkDetailView.as_view(), name='work-detail'),
-]
+urlpatterns = router.urls
 

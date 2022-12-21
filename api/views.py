@@ -1,4 +1,4 @@
-from rest_framework import generics, viewsets, mixins
+from rest_framework import viewsets
 from .serializers import AboutSerializer, SkillsSerializer, WorksSerializer
 from .models import About, Skills, Works
 
@@ -7,33 +7,14 @@ class AboutViewSet(viewsets.ModelViewSet):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
 
-# class AboutView(generics.ListAPIView):
-#   queryset = About.objects.all()
-#   serializer_class = AboutSerializer
 
-  # def get(self, request, *args, **kwargs):
-  #   return self.list(request, *args, **kwargs) 
-
-  # def put(self, request, *args, **kwargs):
-  #   return self.update(request, *args, **kwargs)
-
-
-class SkillsView(generics.ListAPIView):
+class SkillsViewSet(viewsets.ModelViewSet):
   queryset = Skills.objects.all()
   serializer_class = SkillsSerializer
 
 
-class SkillDetailView(generics.RetrieveAPIView):
-  queryset = Skills.objects.all()
-  serializer_class = SkillsSerializer
-
-
-class WorksView(generics.ListAPIView):
+class WorksViewSet(viewsets.ModelViewSet):
   queryset = Works.objects.all()
   serializer_class = WorksSerializer
 
-
-class WorkDetailView(generics.RetrieveAPIView):
-  queryset = Works.objects.all()
-  serializer_class = WorksSerializer
 
