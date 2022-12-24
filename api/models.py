@@ -8,7 +8,7 @@ class About(models.Model):
     return "トップ画像"
 
 
-class Skills(models.Model):
+class Skill(models.Model):
   title = models.CharField('タイトル', max_length=50)
   color_code = models.CharField('カラーコード', max_length=20)
 
@@ -16,12 +16,13 @@ class Skills(models.Model):
     return self.title
 
 
-class Works(models.Model):
+class Work(models.Model):
   image = models.ImageField(upload_to='images', verbose_name='サムネイル')
   title = models.CharField('タイトル', max_length=50)
   description = models.TextField('本文')
   url = models.URLField('URL', max_length=200, blank=True)
-  created_at = models.DateTimeField('作成日', auto_now_add=True)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
 
   def __str__(self):
       return self.title

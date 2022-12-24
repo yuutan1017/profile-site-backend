@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import About, Skills, Works
+from api.models import About, Skill, Work
 
 
 class AboutSerializer(serializers.ModelSerializer):
@@ -8,16 +8,17 @@ class AboutSerializer(serializers.ModelSerializer):
     fields = ('id', 'image')
 
 
-class SkillsSerializer(serializers.ModelSerializer):
+class SkillSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Skills
+    model = Skill
     fields = ('id', 'title', 'color_code')
 
 
-class WorksSerializer(serializers.ModelSerializer):
-  created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M")
+class WorkSerializer(serializers.ModelSerializer):
+  created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
+  updated_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M", read_only=True)
 
   class Meta:
-    model = Works
-    fields = ('id', 'image', 'title', 'description', 'url', 'created_at')
+    model = Work
+    fields = ('id', 'image', 'title', 'description', 'url', 'created_at', 'updated_at')
     
