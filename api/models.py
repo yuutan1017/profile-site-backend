@@ -17,7 +17,7 @@ class Skill(models.Model):
 
 
 class Work(models.Model):
-  image = models.ImageField(upload_to='images', verbose_name='サムネイル')
+  image = models.ImageField(upload_to='images', verbose_name='サムネイル', blank=True)
   title = models.CharField('タイトル', max_length=50)
   description = models.TextField('本文')
   url = models.URLField('URL', max_length=200, blank=True)
