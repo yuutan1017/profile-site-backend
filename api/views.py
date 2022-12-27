@@ -9,9 +9,6 @@ class AboutViewSet(viewsets.ModelViewSet):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
 
-  def perform_create(self, serializer):
-    serializer.save(image=self.request.image)
-
 
 class SkillsViewSet(viewsets.ModelViewSet):
   queryset = Skill.objects.all()

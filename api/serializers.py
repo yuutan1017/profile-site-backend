@@ -5,7 +5,7 @@ from api.models import About, Skill, Work
 class AboutSerializer(serializers.ModelSerializer):
   class Meta:
     model = About
-    fields = ('id', 'image')
+    fields = ('id', 'image', 'text')
 
 
 class SkillSerializer(serializers.ModelSerializer):

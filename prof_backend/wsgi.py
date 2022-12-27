@@ -1,5 +1,5 @@
 """
-WSGI config for profile_site_backend project.
+WSGI config for prof_backend project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'profile_site_backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'prof_backend.settings')
 
 application = get_wsgi_application()
