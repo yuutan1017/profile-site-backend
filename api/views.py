@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+from django.http import HttpResponse
+from rest_framework.parsers import MultiPartParser, FormParser
 from .serializers import AboutSerializer, SkillSerializer, WorkSerializer
 from .models import About, Skill, Work
 
@@ -6,6 +8,9 @@ from .models import About, Skill, Work
 class AboutViewSet(viewsets.ModelViewSet):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
+
+  def perform_create(self, serializer):
+    serializer.save(image=self.request.image)
 
 
 class SkillsViewSet(viewsets.ModelViewSet):
