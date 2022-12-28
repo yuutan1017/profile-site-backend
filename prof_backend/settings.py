@@ -107,7 +107,8 @@ USE_I18N = True
 USE_TZ = True
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://profile-site-pearl.vercel.app",
 ]
 
 
