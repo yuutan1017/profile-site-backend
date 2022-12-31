@@ -1,11 +1,9 @@
-from rest_framework import viewsets
-from django.http import HttpResponse
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework import viewsets, generics
 from .serializers import AboutSerializer, SkillSerializer, WorkSerializer
 from .models import About, Skill, Work
 
 
-class AboutViewSet(viewsets.ModelViewSet):
+class AboutView(generics.RetrieveUpdateAPIView):
   queryset = About.objects.all()
   serializer_class = AboutSerializer
 

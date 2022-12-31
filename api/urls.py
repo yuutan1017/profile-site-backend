@@ -1,14 +1,15 @@
 from django.urls import path, include
-from api import views
-
 from rest_framework import routers
-from .views import AboutViewSet, SkillsViewSet, WorksViewSet
+from .views import AboutView, SkillsViewSet, WorksViewSet
 
 router = routers.DefaultRouter()
 
-router.register(r'about', AboutViewSet, basename='about')
 router.register(r'skills', SkillsViewSet, basename='skills')
 router.register(r'works', WorksViewSet, basename='works')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('about/<int:pk>/', AboutView.as_view(), name='about'),
+    path('', include(router.urls))
+]
+
 
