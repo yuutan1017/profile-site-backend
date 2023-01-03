@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
-from .serializers import AboutSerializer, SkillSerializer, WorkSerializer
-from .models import About, Skill, Work
+from .serializers import AboutSerializer, DetailSerializer,DescriptionSerializer, WorkSerializer
+from .models import About, Skill_Detail, Skill_Description, Work
 
 
 class AboutView(generics.RetrieveUpdateAPIView):
@@ -8,9 +8,14 @@ class AboutView(generics.RetrieveUpdateAPIView):
   serializer_class = AboutSerializer
 
 
-class SkillsViewSet(viewsets.ModelViewSet):
-  queryset = Skill.objects.all()
-  serializer_class = SkillSerializer
+class DetailViewSet(viewsets.ModelViewSet):
+  queryset = Skill_Detail.objects.all()
+  serializer_class = DetailSerializer
+
+
+class DescriptionView(generics.RetrieveUpdateAPIView):
+  queryset = Skill_Description.objects.all()
+  serializer_class = DescriptionSerializer
 
 
 class WorksViewSet(viewsets.ModelViewSet):

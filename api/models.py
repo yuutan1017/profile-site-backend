@@ -9,12 +9,31 @@ class About(models.Model):
     return "トップ画像"
 
 
-class Skill(models.Model):
+class Skill_Detail(models.Model):
+  CATEGORY = (
+    ('1', 'Front End'),
+    ('2', 'Back End'),
+    ('3', 'Others')
+    )
+  category = models.CharField(max_length=1, choices=CATEGORY, default='1')
   title = models.CharField('タイトル', max_length=50)
   color_code = models.CharField('カラーコード', max_length=20)
-
+  
   def __str__(self):
     return self.title
+
+
+class Skill_Description(models.Model):
+  CATEGORY = (
+    ('1', 'Front End'),
+    ('2', 'Back End'),
+    ('3', 'Others')
+    )
+  category = models.CharField(max_length=1, choices=CATEGORY, default='1')
+  description = models.TextField()
+  
+  def __str__(self):
+      return self.category
 
 
 class Work(models.Model):
