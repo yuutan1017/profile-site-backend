@@ -13,7 +13,7 @@ class DetailViewSet(viewsets.ModelViewSet):
   serializer_class = DetailSerializer
 
 
-class DescriptionView(generics.RetrieveUpdateAPIView):
+class DescriptionView(viewsets.ModelViewSet):
   queryset = Skill_Description.objects.all()
   serializer_class = DescriptionSerializer
 

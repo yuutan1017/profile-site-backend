@@ -17,7 +17,7 @@ class DetailSerializer(serializers.ModelSerializer):
 class DescriptionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Skill_Description
-    fields = ('id', 'category', 'description')
+    fields = ('id', 'description')
 
 
 class WorkSerializer(serializers.ModelSerializer):

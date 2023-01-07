@@ -11,9 +11,9 @@ class About(models.Model):
 
 class Skill_Detail(models.Model):
   CATEGORY = (
-    ('1', 'Front End'),
-    ('2', 'Back End'),
-    ('3', 'Others')
+    (1, 'Front End'),
+    (2, 'Back End'),
+    (3, 'Others'),
     )
   category = models.CharField(max_length=1, choices=CATEGORY, default='1')
   title = models.CharField('タイトル', max_length=50)
@@ -24,16 +24,10 @@ class Skill_Detail(models.Model):
 
 
 class Skill_Description(models.Model):
-  CATEGORY = (
-    ('1', 'Front End'),
-    ('2', 'Back End'),
-    ('3', 'Others')
-    )
-  category = models.CharField(max_length=1, choices=CATEGORY, default='1')
   description = models.TextField()
   
   def __str__(self):
-      return self.category
+      return "説明"
 
 
 class Work(models.Model):
