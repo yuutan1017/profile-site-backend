@@ -2,7 +2,7 @@ from django.db import models
 
 
 class About(models.Model):
-  image = models.ImageField(upload_to='images', verbose_name='トップ画像', blank=True, default='images/noImage.jpg')
+  image = models.ImageField(upload_to='images', verbose_name='トップ画像', blank=True)
   text = models.CharField(max_length=255)
 
   def __str__(self):
@@ -31,7 +31,9 @@ class Skill_Description(models.Model):
 
 
 class Work(models.Model):
-  image = models.ImageField(upload_to='images', verbose_name='サムネイル', blank=True, default='images/noImage.jpg')
+  image = models.ImageField(
+    upload_to='images/thumbnail', verbose_name='サムネイル', blank=True, default='images/thumbnail/noImage.jpg'
+  )
   title = models.CharField('タイトル', max_length=50)
   description = models.TextField('本文')
   url = models.URLField('URL', max_length=200, blank=True)
